@@ -1,0 +1,30 @@
+---
+import Header from '../components/Header.astro'
+import Contact from '../components/Contact.astro'
+import AboutMe from '../components/AboutMe.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <div
+    style="background-image: url('wood.jpg')"
+    class="font-sans bg-cover bg-center min-h-screen p-4"
+  >
+    <main
+      class="grid grid-cols-1 md:grid-cols-5 max-w-[1200px] mx-auto shadow-xl relative bg-white bg-[url('paper-transparent.avif')]"
+    >
+      <header class="col-span-full bg-opacity-25 bg-slate-300 px-4">
+        <Header />
+      </header>
+      <aside class="col-span-full md:col-span-1 md:row-span-2">
+        <!-- Sidebar placeholder component -->
+        <Contact />
+        <AboutMe />
+      </aside>
+      <section class="col-span-full md:col-span-4 md:row-span-2">MAIN</section>
+      <footer class="col-span-full md:col-span-5 md:row-span-1 bg-red-500">
+        FOOTER
+      </footer>
+    </main>
+  </div>
+</Layout>

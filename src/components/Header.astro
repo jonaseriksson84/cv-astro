@@ -1,0 +1,30 @@
+---
+import src from '../jonas.jpg'
+---
+
+<div
+  class="grid grid-cols-1 md:grid-cols-[auto,1fr] py-8 md:py-0 min-h-[200px]"
+>
+  <img
+    src={src}
+    alt="Portrait of Jonas"
+    class="rounded-full mx-auto my-4 w-40 grayscale"
+  />
+  <div
+    class="flex flex-col justify-center items-center text-[rgba(17,12,12,0.75)] px-10 max-w-[750px] mx-auto"
+  >
+    <span class="self-start">Hello! My name is...</span>
+    <h1 class="font-custom md:text-8xl text-6xl sm:mx-auto">Jonas Eriksson</h1>
+    <span class="self-end">...and I am Fullstack Engineer</span>
+  </div>
+</div>
+
+<style>
+  @font-face {
+    font-family: 'hiatus';
+    src: url('/hiatus.otf') format('opentype');
+  }
+  .font-custom {
+    font-family: 'hiatus', sans-serif;
+  }
+</style>
