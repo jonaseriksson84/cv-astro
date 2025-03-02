@@ -2,12 +2,18 @@
 import TechStack from './TechStack.astro'
 ---
 
-<div class="mt-2 mx-4">
-  <p class="text-sm py-8 text-balance">
+<div class="mx-4">
+  <p class="text-sm pb-8 text-pretty">
     Fullstack web developer with 13+ years of professional experience, specializing in frontend development and JavaScript/TypeScript. Extensive experience with backend and API development in Go, Python, Java, and Node.js.
   </p>
-  <p class="text-sm text-balance mb-6">
+  <p class="text-sm text-pretty mb-6">
     Strong team player with proven leadership experience, equally comfortable driving projects independently. Quick to adapt to new technologies and environments while maintaining focus on delivering high-quality results.
   </p>
+  
+  <div class="mx-auto my-4">
+    <img src="line.png" alt="line" class="opacity-50 w-full business-theme:hidden" />
+    <hr class="hidden business-theme:block border-gray-300" />
+  </div>
+  
   <TechStack />
 </div>

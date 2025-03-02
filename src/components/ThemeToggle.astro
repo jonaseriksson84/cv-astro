@@ -31,7 +31,7 @@
   const funLabel = toggle?.querySelector('.fun-label')
   const businessLabel = toggle?.querySelector('.business-label')
 
-  isFunTheme.subscribe(isFun => {
+  isFunTheme.subscribe((isFun: boolean) => {
     document.body.classList.toggle('business-theme', !isFun)
     funMode?.classList.toggle('hidden', !isFun)
     businessMode?.classList.toggle('hidden', isFun)

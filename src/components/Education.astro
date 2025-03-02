@@ -12,8 +12,7 @@ const education: Education[] = [
     institution: 'The Institute of Technology at Linköping University',
     period: '2005 — 2011',
     details: [
-      'Focus on Computer Science and Industrial Marketing',
-      'Included one year of Japanese language studies'
+      'Focus on Computer Science and Industrial Marketing including Japanese language studies'
     ]
   },
   {
@@ -29,22 +28,20 @@ const education: Education[] = [
 
 <section class="px-8 py-4">
   <h2 class="text-2xl font-bold mb-6">EDUCATION</h2>
-  {
-    education.map((edu) => (
-      <div class="mb-8">
-        <div class="flex justify-between items-baseline mb-2">
-          <h3 class="text-xl">
-            {edu.degree}
-          </h3>
-          <span class="text-sm text-gray-600">{edu.period}</span>
+  <div class="space-y-6">
+    {
+      education.map(({ degree, institution, period, details }) => (
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+            <h3 class="text-xl">
+              {degree}
+            </h3>
+            <span class="text-base font-semibold text-gray-700 mt-1 sm:mt-0">{period}</span>
+          </div>
+          <p class="text-red-500 mb-2">{institution}</p>
+          <p class="text-sm">{details.join(', ')}</p>
         </div>
-        <p class="text-red-500 mb-2">{edu.institution}</p>
-        <ul class="list-disc ml-4">
-          {edu.details.map((detail) => (
-            <li class="text-sm mb-1">{detail}</li>
-          ))}
-        </ul>
-      </div>
-    ))
-  }
+      ))
+    }
+  </div>
 </section> 

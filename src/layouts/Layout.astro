@@ -21,12 +21,14 @@
       body {
         --bg-texture: url('wood.jpg');
         --paper-texture: url('paper-transparent.avif');
+        --img-filter: none;
       }
 
       /* Business theme */
       body.business-theme {
         --bg-texture: none;
         --paper-texture: none;
+        --img-filter: grayscale(100%);
       }
 
       /* Fun theme styles */
@@ -64,7 +66,7 @@
 
       body.business-theme .border-dashed {
         border-style: solid !important;
-        border-color: #666 !important;
+        border-color: #ddd !important;
       }
 
       /* Keep the custom font for the name in both themes */
@@ -116,6 +118,15 @@
         .border-dashed {
           border-color: #666 !important;
         }
+      }
+
+      /* Business theme styles */
+      body.business-theme .business-theme\:hidden {
+        display: none;
+      }
+
+      body.business-theme .business-theme\:block {
+        display: block;
       }
     </style>
   </body>

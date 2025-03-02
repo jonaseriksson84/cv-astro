@@ -29,12 +29,12 @@ const jobs: Job[] = [
   },
   {
     title: 'FULLSTACK DEVELOPER (consultant)',
-    company: 'Polisen',
+    company: 'Swedish Police Authority',
     consultancy: 'HiQ',
     period: 'June 2016 — October 2017',
     achievements: [
       'Led modernization of legacy systems to web-based applications',
-      'Delivered project milestones ahead of schedule'
+      'Completed system migration 3 months ahead of projected timeline'
     ]
   },
   {
@@ -92,11 +92,11 @@ const groupedJobs = jobs.reduce((acc, job) => {
         )}
         {jobGroup.map((job, index) => (
           <div class={index !== 0 ? 'mt-8' : ''}>
-            <div class="flex justify-between items-baseline mb-2">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
               <h3 class="text-xl">
-                {job.title} / <span class="text-red-500">{job.company}</span>
+                {job.title} <span class="text-red-500">@</span> <span class="text-red-500">{job.company}</span>
               </h3>
-              <span class="text-base font-semibold text-gray-700">{job.period}</span>
+              <span class="text-base font-semibold text-gray-700 mt-1 sm:mt-0">{job.period}</span>
             </div>
             <ul class="list-disc ml-4">
               {job.achievements.map((achievement) => (
