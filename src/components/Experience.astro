@@ -90,29 +90,29 @@ const groupedJobs = jobs.reduce((acc, job) => {
 ---
 
 <section class="px-8 py-4">
-  <h2 class="text-3xl font-bold mb-8">EXPERIENCE</h2>
+  <h2 class="text-2xl font-bold mb-6">EXPERIENCE</h2>
   {
     groupedJobs.map((jobGroup) => (
-      <div class={`mb-12 ${jobGroup[0].consultancy ? 'relative border-2 border-dashed border-red-300 p-8 pt-14' : ''}`}>
+      <div class={`mb-8 ${jobGroup[0].consultancy ? 'relative border-2 border-dashed border-red-300 p-6 pt-12' : ''}`}>
         {jobGroup[0].consultancy && (
-          <span class="absolute -top-6 left-8 bg-white px-4 py-1 text-2xl font-bold text-red-500 rounded-md">
+          <span class="absolute -top-5 left-8 px-4 py-1 text-xl font-bold text-red-500 rounded-md">
             via {jobGroup[0].consultancy} 
-            <span class="text-lg font-normal">
+            <span class="text-base font-normal">
               ({jobGroup[0].consultancy === 'HiQ' ? '2014—2017' : '2012—2014'})
             </span>
           </span>
         )}
         {jobGroup.map((job, index) => (
-          <div class={index !== 0 ? 'mt-10' : ''}>
-            <div class="flex justify-between items-baseline mb-3">
-              <h3 class="text-2xl">
+          <div class={index !== 0 ? 'mt-8' : ''}>
+            <div class="flex justify-between items-baseline mb-2">
+              <h3 class="text-xl">
                 {job.title} / <span class="text-red-500">{job.company}</span>
               </h3>
-              <span class="text-lg font-semibold text-gray-700">{job.period}</span>
+              <span class="text-base font-semibold text-gray-700">{job.period}</span>
             </div>
-            <ul class="list-disc ml-6">
+            <ul class="list-disc ml-4">
               {job.achievements.map((achievement) => (
-                <li class="text-base mb-2">{achievement}</li>
+                <li class="text-sm mb-1">{achievement}</li>
               ))}
             </ul>
           </div>
