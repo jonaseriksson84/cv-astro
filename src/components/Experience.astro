@@ -13,9 +13,8 @@ const jobs: Job[] = [
     company: 'Embark Studios',
     period: 'June 2022 — present',
     achievements: [
-      'Tech lead web and fullstack development (Javascript/Typescript, React, Go, Python and more)',
-      'Managing a team of 8 fullstack developers',
-      'Also working as individual contributor'
+      'Leading web platform development and a team of 8 fullstack developers',
+      'Building core infrastructure and developer tools using TypeScript, React, Go, and Python'
     ]
   },
   {
@@ -23,12 +22,9 @@ const jobs: Job[] = [
     company: 'Reason Studios',
     period: 'October 2017 — June 2022',
     achievements: [
-      'Heavily involved in infrastructure and devops including build systems and servers/AWS',
-      'Serving 10 000+ daily end users with always available systems',
-      'Technical responsibility for the web shop, generating 75% of company revenue',
-      'Technical responsibility for authentication and the license systems',
-      'True full stack development from databases via APIs and microservices to frontend',
-      'Quickly got up to speed in new frameworks - Python & Django'
+      'Technical lead for business-critical systems generating 75% of company revenue',
+      'Built and maintained high-availability services serving 10,000+ daily users',
+      'Architected authentication and license management systems'
     ]
   },
   {
@@ -37,10 +33,8 @@ const jobs: Job[] = [
     consultancy: 'HiQ',
     period: 'June 2016 — October 2017',
     achievements: [
-      'Lead frontend developer porting COBOL systems to modern web-based applications',
-      'Also included significant Java backend development',
-      'Deliverables finished far ahead of schedule',
-      'Introduced the team to frontend build systems and testing'
+      'Led modernization of legacy systems to web-based applications',
+      'Delivered project milestones ahead of schedule'
     ]
   },
   {
@@ -49,11 +43,8 @@ const jobs: Job[] = [
     consultancy: 'HiQ',
     period: 'October 2014 — June 2016',
     achievements: [
-      'Lead frontend developer in multiple projects',
-      'Large influence on UX and design decisions',
-      'Introduced new technologies incl. AngularJS, Sharepoint APIs and Microsoft Graph',
-      'Developed new intranet - start page for 1100 employees and 70 000+ views/month',
-      'Various other projects, including portals for project planning and time reporting'
+      'Led development of company-wide intranet serving 1100+ employees',
+      'Introduced modern frontend stack including AngularJS and Microsoft Graph'
     ]
   },
   {
@@ -62,11 +53,8 @@ const jobs: Job[] = [
     consultancy: 'Capgemini',
     period: 'February 2012 — August 2014',
     achievements: [
-      'Advanced from graduate to lead developer of the Java services within the first year',
-      'Chosen to the 7 employee core team out of total 25 employees',
-      'Responsible for estimation, analysis, bugfixing and documentation of incidents and change requests',
-      'Project leader responsibilites for time plans, team briefings and client meetings',
-      'Shared responisibility for new hires, including interviews, training and core reviews'
+      'Advanced to lead developer within first year',
+      'Core team member responsible for service reliability and team growth'
     ]
   }
 ]
@@ -95,7 +83,7 @@ const groupedJobs = jobs.reduce((acc, job) => {
     groupedJobs.map((jobGroup) => (
       <div class={`mb-8 ${jobGroup[0].consultancy ? 'relative border-2 border-dashed border-red-300 p-6 pt-12' : ''}`}>
         {jobGroup[0].consultancy && (
-          <span class="absolute -top-5 left-8 px-4 py-1 text-xl font-bold text-red-500 rounded-md">
+          <span class="absolute -top-5 left-8 bg-white px-4 py-1 text-xl font-bold text-red-500 rounded-md">
             via {jobGroup[0].consultancy} 
             <span class="text-base font-normal">
               ({jobGroup[0].consultancy === 'HiQ' ? '2014—2017' : '2012—2014'})
