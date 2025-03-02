@@ -8,9 +8,115 @@
       href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body class="font-sans">
+  <body class="font-sans transition-all duration-300">
     <slot />
+    <style is:global>
+      /* Fun theme (default) */
+      body {
+        --bg-texture: url('wood.jpg');
+        --paper-texture: url('paper-transparent.avif');
+      }
+
+      /* Business theme */
+      body.business-theme {
+        --bg-texture: none;
+        --paper-texture: none;
+      }
+
+      /* Fun theme styles */
+      body:not(.business-theme) {
+        font-family: 'Indie Flower', cursive;
+      }
+
+      body:not(.business-theme) h1,
+      body:not(.business-theme) h2,
+      body:not(.business-theme) h3,
+      body:not(.business-theme) p,
+      body:not(.business-theme) li,
+      body:not(.business-theme) span:not(.font-custom) {
+        font-family: 'Indie Flower', cursive;
+      }
+
+      /* Business theme styles */
+      body.business-theme {
+        font-family: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+        background: #f5f5f5 !important;
+      }
+
+      body.business-theme main {
+        background: white !important;
+      }
+
+      body.business-theme h1,
+      body.business-theme h2,
+      body.business-theme h3,
+      body.business-theme p,
+      body.business-theme li,
+      body.business-theme span:not(.font-custom) {
+        font-family: 'Source Sans Pro', system-ui, -apple-system, sans-serif !important;
+      }
+
+      body.business-theme .border-dashed {
+        border-style: solid !important;
+        border-color: #666 !important;
+      }
+
+      /* Keep the custom font for the name in both themes */
+      .font-custom {
+        font-family: 'hiatus', sans-serif !important;
+      }
+
+      @media print {
+        #theme-toggle {
+          display: none !important;
+        }
+
+        body {
+          font-family: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+          background: none !important;
+          color: black;
+        }
+
+        main {
+          box-shadow: none !important;
+          background: white !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          max-width: none !important;
+        }
+
+        /* Remove decorative background images */
+        div[style*="background-image"] {
+          background-image: none !important;
+        }
+
+        /* Ensure text is black and readable */
+        p, li, h1, h2, h3, span {
+          color: black !important;
+        }
+
+        /* Adjust spacing for print */
+        .p-4, .px-8, .py-4 {
+          padding: 0.5rem !important;
+        }
+
+        /* Make links black and remove underlines */
+        a {
+          color: black !important;
+          text-decoration: none !important;
+        }
+
+        /* Ensure borders are visible */
+        .border-dashed {
+          border-color: #666 !important;
+        }
+      }
+    </style>
   </body>
 </html>

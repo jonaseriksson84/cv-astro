@@ -5,15 +5,18 @@ import AboutMe from '../components/AboutMe.astro'
 import Experience from '../components/Experience.astro'
 import Education from '../components/Education.astro'
 import Layout from '../layouts/Layout.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
 ---
 
 <Layout>
+  <ThemeToggle />
   <div
-    style="background-image: url('wood.jpg')"
+    style={{ backgroundImage: 'var(--bg-texture)' }}
     class="font-sans bg-cover bg-center min-h-screen p-4"
   >
     <main
-      class="grid grid-cols-1 md:grid-cols-5 max-w-[1200px] mx-auto shadow-xl relative bg-white bg-[url('paper-transparent.avif')]"
+      class="grid grid-cols-1 md:grid-cols-5 max-w-[1200px] mx-auto shadow-xl relative bg-white"
+      style={{ backgroundImage: 'var(--paper-texture)' }}
     >
       <header class="col-span-full bg-opacity-25 bg-slate-300 px-4">
         <Header />
