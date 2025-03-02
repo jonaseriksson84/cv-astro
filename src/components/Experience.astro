@@ -1,0 +1,123 @@
+---
+interface Job {
+  title: string
+  company: string
+  period: string
+  achievements: string[]
+  consultancy?: string
+}
+
+const jobs: Job[] = [
+  {
+    title: 'FULLSTACK ENGINEER & TECH LEAD',
+    company: 'Embark Studios',
+    period: 'June 2022 — present',
+    achievements: [
+      'Tech lead web and fullstack development (Javascript/Typescript, React, Go, Python and more)',
+      'Managing a team of 8 fullstack developers',
+      'Also working as individual contributor'
+    ]
+  },
+  {
+    title: 'FULLSTACK DEVELOPER',
+    company: 'Reason Studios',
+    period: 'October 2017 — June 2022',
+    achievements: [
+      'Heavily involved in infrastructure and devops including build systems and servers/AWS',
+      'Serving 10 000+ daily end users with always available systems',
+      'Technical responsibility for the web shop, generating 75% of company revenue',
+      'Technical responsibility for authentication and the license systems',
+      'True full stack development from databases via APIs and microservices to frontend',
+      'Quickly got up to speed in new frameworks - Python & Django'
+    ]
+  },
+  {
+    title: 'FULLSTACK DEVELOPER (consultant)',
+    company: 'Polisen',
+    consultancy: 'HiQ',
+    period: 'June 2016 — October 2017',
+    achievements: [
+      'Lead frontend developer porting COBOL systems to modern web-based applications',
+      'Also included significant Java backend development',
+      'Deliverables finished far ahead of schedule',
+      'Introduced the team to frontend build systems and testing'
+    ]
+  },
+  {
+    title: 'FRONTEND DEVELOPER (consultant)',
+    company: 'Midroc',
+    consultancy: 'HiQ',
+    period: 'October 2014 — June 2016',
+    achievements: [
+      'Lead frontend developer in multiple projects',
+      'Large influence on UX and design decisions',
+      'Introduced new technologies incl. AngularJS, Sharepoint APIs and Microsoft Graph',
+      'Developed new intranet - start page for 1100 employees and 70 000+ views/month',
+      'Various other projects, including portals for project planning and time reporting'
+    ]
+  },
+  {
+    title: 'JAVA DEVELOPER (consultant)',
+    company: 'Euroclear',
+    consultancy: 'Capgemini',
+    period: 'February 2012 — August 2014',
+    achievements: [
+      'Advanced from graduate to lead developer of the Java services within the first year',
+      'Chosen to the 7 employee core team out of total 25 employees',
+      'Responsible for estimation, analysis, bugfixing and documentation of incidents and change requests',
+      'Project leader responsibilites for time plans, team briefings and client meetings',
+      'Shared responisibility for new hires, including interviews, training and core reviews'
+    ]
+  }
+]
+
+// Group jobs by consultancy
+const groupedJobs = jobs.reduce((acc, job) => {
+  if (!job.consultancy) {
+    acc.push([job]);
+  } else {
+    const existingGroup = acc.find(group => 
+      group[0].consultancy === job.consultancy
+    );
+    if (existingGroup) {
+      existingGroup.push(job);
+    } else {
+      acc.push([job]);
+    }
+  }
+  return acc;
+}, [] as Job[][]);
+---
+
+<section class="px-8 py-4">
+  <h2 class="text-3xl font-bold mb-8">EXPERIENCE</h2>
+  {
+    groupedJobs.map((jobGroup) => (
+      <div class={`mb-12 ${jobGroup[0].consultancy ? 'relative border-2 border-dashed border-red-300 p-8 pt-14' : ''}`}>
+        {jobGroup[0].consultancy && (
+          <span class="absolute -top-6 left-8 bg-white px-4 py-1 text-2xl font-bold text-red-500 rounded-md">
+            via {jobGroup[0].consultancy} 
+            <span class="text-lg font-normal">
+              ({jobGroup[0].consultancy === 'HiQ' ? '2014—2017' : '2012—2014'})
+            </span>
+          </span>
+        )}
+        {jobGroup.map((job, index) => (
+          <div class={index !== 0 ? 'mt-10' : ''}>
+            <div class="flex justify-between items-baseline mb-3">
+              <h3 class="text-2xl">
+                {job.title} / <span class="text-red-500">{job.company}</span>
+              </h3>
+              <span class="text-lg font-semibold text-gray-700">{job.period}</span>
+            </div>
+            <ul class="list-disc ml-6">
+              {job.achievements.map((achievement) => (
+                <li class="text-base mb-2">{achievement}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</section> 

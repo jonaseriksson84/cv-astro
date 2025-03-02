@@ -1,0 +1,51 @@
+---
+interface Education {
+  degree: string
+  institution: string
+  period: string
+  details: string[]
+}
+
+const education: Education[] = [
+  {
+    degree: 'M.Sc. Industrial Engineering and Management (International, Japanese)',
+    institution: 'The Institute of Technology at Linköping University',
+    period: '2005 — 2011',
+    details: [
+      'Computer science - programming, computer architecture, larger project based software engineering courses.',
+      'Industrial Marketing - project management, strategic mangagement and positioning.',
+      'Preceeded by one year of Japanese courses'
+    ]
+  },
+  {
+    degree: 'Exchange Studies',
+    institution: '明治大学 / Meiji University, Tokyo',
+    period: '2008 — 2009',
+    details: [
+      'Exchange student programme as part of the masters degree. All courses were given in Japanese, and consisted of business and management courses.'
+    ]
+  }
+]
+---
+
+<section class="px-8 py-4">
+  <h2 class="text-2xl font-bold mb-6">EDUCATION</h2>
+  {
+    education.map((edu) => (
+      <div class="mb-8">
+        <div class="flex justify-between items-baseline mb-2">
+          <h3 class="text-xl">
+            {edu.degree}
+          </h3>
+          <span class="text-sm text-gray-600">{edu.period}</span>
+        </div>
+        <p class="text-red-500 mb-2">{edu.institution}</p>
+        <ul class="list-disc ml-4">
+          {edu.details.map((detail) => (
+            <li class="text-sm mb-1">{detail}</li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</section> 

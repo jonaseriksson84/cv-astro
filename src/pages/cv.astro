@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro'
 import Contact from '../components/Contact.astro'
 import AboutMe from '../components/AboutMe.astro'
+import Experience from '../components/Experience.astro'
+import Education from '../components/Education.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
@@ -22,7 +24,10 @@ import Layout from '../layouts/Layout.astro'
         <img src="line.png" alt="line" class="w-[90%] mx-auto opacity-50" />
         <AboutMe />
       </aside>
-      <section class="col-span-full md:col-span-4 md:row-span-2">MAIN</section>
+      <section class="col-span-full md:col-span-4 md:row-span-2">
+        <Experience />
+        <Education />
+      </section>
       <footer class="col-span-full md:col-span-5 md:row-span-1 bg-red-500">
         FOOTER
       </footer>
