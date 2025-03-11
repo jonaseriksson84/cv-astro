@@ -5,6 +5,7 @@ interface Job {
   period: string
   achievements: string[]
   consultancy?: string
+  buzzwords: string[]
 }
 
 const jobs: Job[] = [
@@ -15,7 +16,8 @@ const jobs: Job[] = [
     achievements: [
       'Leading web platform development and a team of 8 fullstack developers',
       'Building core infrastructure and developer tools using TypeScript, React, Go, and Python'
-    ]
+    ],
+    buzzwords: ['TypeScript', 'React', 'Next.js', 'Go', 'Python', 'GCP', 'Kubernetes', 'Leadership']
   },
   {
     title: 'FULLSTACK DEVELOPER',
@@ -25,7 +27,8 @@ const jobs: Job[] = [
       'Technical lead for business-critical systems generating 75% of company revenue',
       'Built and maintained high-availability services serving 10,000+ daily users',
       'Architected authentication and license management systems'
-    ]
+    ],
+    buzzwords: ['Python', 'Django', 'React', 'MySQL', 'PostgreSQL', 'AWS', 'Docker']
   },
   {
     title: 'FULLSTACK DEVELOPER (consultant)',
@@ -35,7 +38,8 @@ const jobs: Job[] = [
     achievements: [
       'Led modernization of legacy systems to web-based applications',
       'Completed system migration 3 months ahead of projected timeline'
-    ]
+    ],
+    buzzwords: ['AngularJS', 'Java']
   },
   {
     title: 'FRONTEND DEVELOPER (consultant)',
@@ -45,7 +49,8 @@ const jobs: Job[] = [
     achievements: [
       'Led development of company-wide intranet serving 1100+ employees',
       'Introduced modern frontend stack including AngularJS and Microsoft Graph'
-    ]
+    ],
+    buzzwords: ['AngularJS', 'Microsoft Graph', 'SharePoint', 'Azure AD']
   },
   {
     title: 'JAVA DEVELOPER (consultant)',
@@ -55,7 +60,8 @@ const jobs: Job[] = [
     achievements: [
       'Advanced to lead developer within first year',
       'Core team member responsible for service reliability and team growth'
-    ]
+    ],
+    buzzwords: ['Java', 'JavaScript']
   }
 ]
 
@@ -81,9 +87,9 @@ const groupedJobs = jobs.reduce((acc, job) => {
   <h2 class="text-2xl font-bold mb-6">EXPERIENCE</h2>
   {
     groupedJobs.map((jobGroup) => (
-      <div class={`mb-8 ${jobGroup[0].consultancy ? 'relative border-2 border-dashed border-red-300 p-6 pt-12' : ''}`}>
+      <div class={`mb-8 ${jobGroup[0].consultancy ? 'relative border-2 border-dashed border-red-300 p-6 pt-8 mt-12' : ''}`}>
         {jobGroup[0].consultancy && (
-          <span class="absolute -top-5 left-8 bg-white px-4 py-1 text-xl font-bold text-red-500 rounded-md">
+          <span class="absolute -top-5 left-8 bg-white bg-opacity-70 px-4 py-1 text-xl font-bold text-red-500 rounded-md">
             via {jobGroup[0].consultancy} 
             <span class="text-base font-normal">
               ({jobGroup[0].consultancy === 'HiQ' ? '2014—2017' : '2012—2014'})
@@ -103,6 +109,13 @@ const groupedJobs = jobs.reduce((acc, job) => {
                 <li class="text-sm mb-1">{achievement}</li>
               ))}
             </ul>
+            <div class="mt-2 flex flex-wrap gap-2">
+              {job.buzzwords.map((buzzword) => (
+                <span class="inline-block px-2 py-1 text-xs font-semibold bg-gray-200 text-gray-700 rounded-full border border-gray-300">
+                  {buzzword}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
