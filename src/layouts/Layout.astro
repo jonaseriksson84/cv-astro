@@ -3,23 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <title>Jonas Eriksson - Fullstack Engineer</title>
+    
+    <!-- Preload critical font files -->
+    <link rel="preload" href="/hiatus.otf" as="font" type="font/otf" crossorigin />
+    
+    <!-- Optimize Google Fonts loading with display=swap -->
+    <link
+      rel="preconnect" 
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect" 
+      href="https://fonts.gstatic.com" 
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <!-- Fallback for non-JS environments -->
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    
+    <!-- Preload critical background images -->
+    <link rel="preload" href="/wood.webp" as="image" type="image/webp" />
+    <link rel="preload" href="/paper-transparent.avif" as="image" type="image/avif" />
   </head>
 
   <body class="font-sans transition-all duration-300">
     <slot />
     <style is:global>
+      /* Custom font with font-display: swap for better loading experience */
+      @font-face {
+        font-family: 'hiatus';
+        src: url('/hiatus.otf') format('opentype');
+        font-display: swap;
+      }
+      
       /* Fun theme (default) */
       body {
-        --bg-texture: url('wood.jpg');
+        --bg-texture: url('wood.webp');
         --paper-texture: url('paper-transparent.avif');
         --img-filter: none;
       }
@@ -39,6 +79,7 @@
       body:not(.business-theme) h1,
       body:not(.business-theme) h2,
       body:not(.business-theme) h3,
+      body:not(.business-theme) h4,
       body:not(.business-theme) p,
       body:not(.business-theme) li,
       body:not(.business-theme) span:not(.font-custom) {
@@ -58,6 +99,7 @@
       body.business-theme h1,
       body.business-theme h2,
       body.business-theme h3,
+      body.business-theme h4,
       body.business-theme p,
       body.business-theme li,
       body.business-theme span:not(.font-custom) {
@@ -99,7 +141,7 @@
         }
 
         /* Ensure text is black and readable */
-        p, li, h1, h2, h3, span {
+        p, li, h1, h2, h3, h4, span {
           color: black !important;
         }
 

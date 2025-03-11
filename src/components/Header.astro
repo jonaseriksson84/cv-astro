@@ -1,5 +1,5 @@
 ---
-import imageSrc from '../../public/jonas2.jpg'
+import imageSrc from '../../public/jonas2.webp'
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] py-8 md:py-0 min-h-[200px]">
@@ -8,6 +8,9 @@ import imageSrc from '../../public/jonas2.jpg'
     alt="Portrait of Jonas"
     class="rounded-full mx-auto my-4 w-40"
     style={{ filter: 'var(--img-filter)' }}
+    width="160"
+    height="160"
+    loading="eager"
   />
   <div class="flex flex-col justify-center items-center text-[rgba(17,12,12,0.75)] px-10 max-w-[750px] mx-auto">
     <span class="self-start">Hello! My name is...</span>
@@ -16,12 +19,4 @@ import imageSrc from '../../public/jonas2.jpg'
   </div>
 </div>
 
-<style>
-  @font-face {
-    font-family: 'hiatus';
-    src: url('/hiatus.otf') format('opentype');
-  }
-  .font-custom {
-    font-family: 'hiatus', sans-serif;
-  }
-</style>
+<!-- Font is now defined globally in Layout.astro with font-display: swap -->
